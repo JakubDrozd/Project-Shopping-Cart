@@ -2,27 +2,26 @@ body {
   margin: 0;
 }
 
-nav {
+.nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #777;
   color: white;
-  font-size: 3rem;
-  height: 10vh;
+  font-size: 2.3rem;
   padding: 1rem;
 }
 
-nav li {
+.nav > li {
   list-style: none;
 }
 
-nav a {
+.nav > a {
   text-decoration: none;
   color: white;
   transition: all 0.2s ease-in-out;
 }
 
-nav a:hover {
+.nav > a:hover {
   transform: scale(1.2);
 }

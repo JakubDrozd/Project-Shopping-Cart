@@ -1,10 +1,13 @@
 import {Link} from "react-router-dom"
+import { CartDropdown } from "./Dropdown"
+
 
 export function Nav(){
     return (
-        <nav>
+        <nav className="nav">
             <Link to="/"><li>Home</li></Link>
             <Link to="/shop"><li>Shop</li></Link>
+        <CartDropdown></CartDropdown>
         </nav>
     )
 }

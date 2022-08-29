@@ -1,4 +1,4 @@
-import { Nav } from "./Nav";
+
 
 export function Shop(){
     return (

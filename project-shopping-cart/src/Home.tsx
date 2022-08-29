@@ -1,5 +1,10 @@
+import { Nav } from "./Nav";
+
 export function Home(){
     return (
-        <div>Home</div>
+        <>
+            <Nav></Nav>
+            <h1>Home</h1>
+        </>
     )
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Home() {
   const [items, setItems] = useState([]);
@@ -24,7 +25,7 @@ export function Home() {
       >
         *Based on community's rating
       </h5>
-      <div className="card-deck d-flex justify-content-around gap-5 flex-wrap">
+      <div className="card-deck d-flex justify-content-around flex-wrap gap-3">
         {items
           .sort((a, b) => b.ratings.avgStars - a.ratings.avgStars)
           .map((item) => {
@@ -33,13 +34,11 @@ export function Home() {
             }
             return (
               <div className="card" key={item.identifier}>
-                <img
-                  src={item.images.transparent}
-                  alt={item.name}
-                  onerror={require("../images/generic-image-placeholder.png")}
-                />
+                <img src={item.images.transparent} alt={item.name} />
                 <div className="card-body">
-                  <h5 className="card-title">{item.name}</h5>
+                  <Link to={`/${item.identifier}`}>
+                    <h5 className="card-title">{item.name}</h5>
+                  </Link>
                   <p className="card-text">{item.description}</p>
                 </div>
                 <div className="card-footer">

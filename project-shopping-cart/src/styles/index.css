@@ -25,3 +25,8 @@ body {
 .nav > a:hover {
   transform: scale(1.2);
 }
+
+.card {
+  width: 20vh;
+  height: auto;
+}

@@ -25,7 +25,7 @@ export function ItemPage() {
   console.log(item);
   return (
     <div>
-      <section className="py-5">
+      <section className="py-5 bg-light">
         <div className="container px-4 px-lg-5 my-5">
           <div className="row gx-4 gx-lg-5 align-items-center">
             <div className="col-md-6">

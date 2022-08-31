@@ -6,7 +6,7 @@ import {Nav} from "./Nav"
 import { Cart } from "./Cart"
 import { ItemPage } from "./ItemPage"
 
-
+//App component
 export function App(){
     return (
         <BrowserRouter>

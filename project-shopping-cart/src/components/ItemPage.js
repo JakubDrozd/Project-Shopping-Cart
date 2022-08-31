@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+//Item Page component
 export function ItemPage() {
   const params = useParams();
 

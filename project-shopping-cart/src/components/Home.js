@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+//Home component
 export function Home() {
   const [items, setItems] = useState([]);
 

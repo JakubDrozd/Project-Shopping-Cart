@@ -1,5 +1,6 @@
 import Dropdown from 'react-bootstrap/dropdown';
 
+//Dropdown component
 export function CartDropdown(){
     return (
     <Dropdown>

@@ -1,15 +1,47 @@
+@font-face {
+  font-family: "fortnite";
+  src: url("../fonts/fortnite.otf");
+}
+
 body {
   margin: 0;
+  font-family: "fortnite";
+  font-size: 2em;
+}
+
+html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
 }
 
 .nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #777;
+  background-color: rgb(0, 0, 90);
   color: white;
   font-size: 2.3rem;
   padding: 1rem;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
 }
 
 .nav > li {
@@ -29,4 +61,8 @@ body {
 .card {
   width: 20vh;
   height: auto;
+}
+
+.announce {
+  background-color: rgb(16, 55, 158);
 }

@@ -39,6 +39,7 @@ export function Shop() {
                 .sort((a, b) => b.store.cost - a.store.cost)
                 .map((item) => {
                   if (item.store.cost === 0) {
+                    // eslint-disable-next-line array-callback-return
                     return;
                   }
                   return (

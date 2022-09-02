@@ -32,60 +32,62 @@ export function Shop() {
           </div>
         </header>
         {/* Section*/}
-        <section className="py-5 bg-light">
+        <section className="d-flex bg-light">
           <div className="container px-4 px-lg-5 mt-5">
-            <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-              {items.map((item) => {
-                if (item.store.cost === 0) {
-                  return;
-                }
-                return (
-                  <div className="col mb-5" key={item.itemId}>
-                    <div className="card h-100">
-                      {/* Product image*/}
-                      <img
-                        className="card-img-top bg-info"
-                        src={item.item.images.background}
-                        alt="#"
-                      />
-                      {/* Product details*/}
-                      <div className="card-body p-4">
-                        <div className="text-center">
-                          {/* Product name*/}
-                          <h5 className="fw-bolder">{item.item.name}</h5>
-                          {/* Product price*/}
-                          <h5>
-                            {item.store.cost.toLocaleString("en-US")}{" "}
-                            <img
-                              src={require("../images/coins.png")}
-                              width={"40%"}
-                              height={"40%"}
-                              alt={item.item.name}
-                            ></img>
-                          </h5>
+            <div className="d-flex justify-center flex-wrap">
+              {items
+                .sort((a, b) => b.store.cost - a.store.cost)
+                .map((item) => {
+                  if (item.store.cost === 0) {
+                    return;
+                  }
+                  return (
+                    <div className="col mb-5" key={item.itemId}>
+                      <div className={`card h-100`}>
+                        {/* Product image*/}
+                        <img
+                          className="card-img-top bg-info"
+                          src={item.item.images.background}
+                          alt="#"
+                        />
+                        {/* Product details*/}
+                        <div className="card-body p-4">
+                          <div className="text-center">
+                            {/* Product name*/}
+                            <h5 className="fw-bolder">{item.item.name}</h5>
+                            {/* Product price*/}
+                            <h5>
+                              {item.store.cost.toLocaleString("en-US")}{" "}
+                              <img
+                                src={require("../images/coins.png")}
+                                width={"40%"}
+                                height={"40%"}
+                                alt={item.item.name}
+                              ></img>
+                            </h5>
+                          </div>
                         </div>
-                      </div>
-                      {/* Product actions*/}
-                      <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div className="text-center">
-                          <Link to={`/${item.itemId}`}>
-                            <div className="btn btn-outline-dark mt-auto">
-                              Show in shop
+                        {/* Product actions*/}
+                        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div className="text-center">
+                            <Link to={`/${item.itemId}`}>
+                              <div className="btn btn-outline-dark mt-auto btn-lg">
+                                Show in shop
+                              </div>
+                            </Link>
+                          </div>
+                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div className="text-center">
+                            <div className="btn btn-outline-dark mt-auto btn-lg">
+                              Add to cart
                             </div>
-                          </Link>
-                        </div>
-                      </div>
-                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div className="text-center">
-                          <a className="btn btn-outline-dark mt-auto" href="#">
-                            Add to cart
-                          </a>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
           </div>
         </section>
@@ -93,7 +95,7 @@ export function Shop() {
         <footer className="py-5 bg-dark">
           <div className="container">
             <p className="m-0 text-center text-white">
-              Copyright © Your Website 2022
+              Copyright © Veanty 2022
             </p>
           </div>
         </footer>

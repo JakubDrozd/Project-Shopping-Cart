@@ -36,15 +36,18 @@ export function Shop() {
           <div className="container px-4 px-lg-5 mt-5">
             <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
               {items.map((item) => {
-                if (item.item.images.background === undefined) {
+                if (
+                  item.item.images.background === undefined ||
+                  item.store.cost === 0
+                ) {
                   return;
                 }
                 return (
-                  <div className="col mb-5">
+                  <div className="col mb-5" key={item.itemId}>
                     <div className="card h-100">
                       {/* Product image*/}
                       <img
-                        className="card-img-top"
+                        className="card-img-top bg-info"
                         src={item.item.images.background}
                         alt="#"
                       />
@@ -55,7 +58,7 @@ export function Shop() {
                           <h5 className="fw-bolder">{item.item.name}</h5>
                           {/* Product price*/}
                           <h5>
-                            {item.store.cost}{" "}
+                            {item.store.cost.toLocaleString("en-US")}{" "}
                             <img
                               src={require("../images/coins.png")}
                               width={"40%"}

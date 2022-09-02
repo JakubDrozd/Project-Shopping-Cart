@@ -42,7 +42,7 @@ export function Home() {
                   return;
                 }
                 return (
-                  <div className="col mb-5">
+                  <div className="col mb-5" key={item.identifier}>
                     <div className="card h-100">
                       {/* Product image*/}
                       <img
@@ -56,6 +56,7 @@ export function Home() {
                           {/* Product name*/}
                           <h5 className="fw-bolder">{item.name}</h5>
                           {/* Product price*/}
+                          {/* {item.store.cost.toLocaleString("en-US")}{" "} */}
                         </div>
                       </div>
                       {/* Product actions*/}

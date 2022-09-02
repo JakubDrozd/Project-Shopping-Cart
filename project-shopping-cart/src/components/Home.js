@@ -21,7 +21,7 @@ export function Home() {
   return (
     <div>
       {/* Header*/}
-      <header className="bg-dark py-5">
+      <header className="announce py-5">
         <div className="container px-4 px-lg-5 my-5">
           <div className="text-center text-white">
             <h1 className="display-4 fw-bolder">This week's favorites</h1>
@@ -46,7 +46,7 @@ export function Home() {
                     <div className="card h-100">
                       {/* Product image*/}
                       <img
-                        className="card-img-top"
+                        className="card-img-top bg-info"
                         src={item.images.transparent}
                         alt={item.name}
                       />
@@ -62,20 +62,17 @@ export function Home() {
                       <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div className="text-center">
                           <Link to={`/${item.identifier}`}>
-                            <a
-                              className="btn btn-outline-dark mt-auto"
-                              href="#"
-                            >
+                            <div className="btn btn-outline-dark mt-auto btn-lg">
                               Show in shop
-                            </a>
+                            </div>
                           </Link>
                         </div>
                       </div>
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center">
-                          <a class="btn btn-outline-dark mt-auto" href="#">
+                          <div className="btn btn-outline-dark mt-auto btn-lg">
                             Add to cart
-                          </a>
+                          </div>
                         </div>
                       </div>
                     </div>

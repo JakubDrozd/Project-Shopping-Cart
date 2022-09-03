@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export function Shop() {
+export function Shop(props) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export function Shop() {
     );
     const items = await data.json();
     setItems(items.data);
-    console.log(items.data);
+    // console.log(items.data);
   };
 
   return (
@@ -80,7 +80,12 @@ export function Shop() {
                         </div>
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                           <div className="text-center">
-                            <div className="btn btn-outline-dark mt-auto btn-lg">
+                            <div
+                              className="btn btn-outline-dark mt-auto btn-lg"
+                              // onClick={() => {
+                              //   addItemToCart();
+                              // }}
+                            >
                               Add to cart
                             </div>
                           </div>

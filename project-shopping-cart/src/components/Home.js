@@ -11,7 +11,6 @@ export function Home() {
     );
     const items = await data.json();
     setItems(items.entries[1].entries);
-    console.log(items.entries[1].entries);
   };
 
   useEffect(() => {

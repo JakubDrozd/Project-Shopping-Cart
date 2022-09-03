@@ -83,10 +83,10 @@ export function Home() {
         </div>
       </section>
       {/* Footer*/}
-      <footer className="py-5 bg-dark">
+      <footer className="py-5 nav">
         <div className="container">
           <p className="m-0 text-center text-white">
-            Copyright © Your Website 2022
+            Copyright © Veanty Website 2022
           </p>
         </div>
       </footer>

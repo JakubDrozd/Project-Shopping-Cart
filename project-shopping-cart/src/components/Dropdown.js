@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/dropdown";
+import { Link } from "react-router-dom";
 
 //Dropdown component
 export function CartDropdown({ items }) {
@@ -12,9 +13,10 @@ export function CartDropdown({ items }) {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="/cart">Go to checkout</Dropdown.Item>
+        <Link to="/cart">
+          <Dropdown.Divider></Dropdown.Divider>
+          <Dropdown.ItemText>Go to checkout</Dropdown.ItemText>
+        </Link>
       </Dropdown.Menu>
     </Dropdown>
   );

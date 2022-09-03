@@ -70,7 +70,7 @@ export function ItemPage() {
           </div>
         </div>
       </section>
-      <footer className="py-5 bg-dark">
+      <footer className="py-5 nav">
         <div className="container">
           <p className="m-0 text-center text-white">Copyright © Veanty 2022</p>
         </div>

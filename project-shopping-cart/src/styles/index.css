@@ -61,8 +61,45 @@ html {
 .card {
   width: 20vh;
   height: auto;
+  transition: all 0.2s ease-in-out;
+  border-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.card img {
+  border-radius: 0px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  border: 5px solid rgb(255, 255, 0);
 }
 
 .announce {
   background-color: rgb(16, 55, 158);
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 90);
+  color: white;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.arena {
+  background: rgb(27, 128, 181);
+  background: linear-gradient(
+    180deg,
+    rgba(27, 128, 181, 1) 0%,
+    rgba(21, 78, 169, 1) 50%,
+    rgba(21, 77, 169, 1) 76%,
+    rgba(19, 62, 166, 1) 100%
+  );
 }

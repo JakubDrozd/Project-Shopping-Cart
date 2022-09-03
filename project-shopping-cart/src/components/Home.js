@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 //Home component
 export function Home() {
+  const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
@@ -11,12 +12,20 @@ export function Home() {
     );
     const items = await data.json();
     setItems(items.entries[1].entries);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     fetchItems();
   }, []);
 
+  if (isLoading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
   return (
     <div>
       {/* Header*/}
@@ -31,9 +40,9 @@ export function Home() {
         </div>
       </header>
       {/* Section*/}
-      <section className="py-5 bg-light">
+      <section className="py-5 arena">
         <div className="container px-4 px-lg-5 mt-5">
-          <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+          <div className="d-flex justify-center flex-wrap gap-3">
             {items
               .sort((a, b) => b.rating - a.rating)
               .map((item) => {

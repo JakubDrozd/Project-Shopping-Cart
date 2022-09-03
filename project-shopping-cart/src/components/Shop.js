@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export function Shop(props) {
+  const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -14,9 +15,17 @@ export function Shop(props) {
     );
     const items = await data.json();
     setItems(items.data);
+    setIsLoading(false);
     // console.log(items.data);
   };
 
+  if (isLoading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
   return (
     <>
       <div>
@@ -32,9 +41,9 @@ export function Shop(props) {
           </div>
         </header>
         {/* Section*/}
-        <section className="d-flex bg-light">
+        <section className="d-flex arena">
           <div className="container px-4 px-lg-5 mt-5">
-            <div className="d-flex justify-center flex-wrap">
+            <div className="d-flex justify-center flex-wrap gap-3">
               {items
                 .sort((a, b) => b.store.cost - a.store.cost)
                 .map((item) => {
@@ -51,21 +60,20 @@ export function Shop(props) {
                           src={item.item.images.background}
                           alt="#"
                         />
+                        {/* Product price*/}
+                        <h5 className="price">
+                          {item.store.cost.toLocaleString("en-US")}{" "}
+                          <img
+                            src={require("../images/coins.png")}
+                            width={"10%"}
+                            alt={item.item.name}
+                          ></img>
+                        </h5>
                         {/* Product details*/}
                         <div className="card-body p-4">
                           <div className="text-center">
                             {/* Product name*/}
                             <h5 className="fw-bolder">{item.item.name}</h5>
-                            {/* Product price*/}
-                            <h5>
-                              {item.store.cost.toLocaleString("en-US")}{" "}
-                              <img
-                                src={require("../images/coins.png")}
-                                width={"40%"}
-                                height={"40%"}
-                                alt={item.item.name}
-                              ></img>
-                            </h5>
                           </div>
                         </div>
                         {/* Product actions*/}

@@ -7,6 +7,7 @@ export function ItemPage() {
 
   useEffect(() => {
     fetchItem();
+    console.log(params);
   }, []);
 
   const [item, setItem] = useState({
@@ -20,10 +21,8 @@ export function ItemPage() {
     );
     const item = await fetchItem.json();
     setItem(item.data.item);
-    console.log(item.data.item);
   };
 
-  console.log(item);
   return (
     <div>
       <section className="py-5 bg-info">

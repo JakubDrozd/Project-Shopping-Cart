@@ -30,11 +30,11 @@ export function Shop(props) {
     <>
       <div>
         {/* Header*/}
-        <header className="py-5 announce">
+        <header className="py-5 arena">
           <div className="container px-4 px-lg-5 my-5 ">
             <div className="text-center text-white ">
               <h1 className="display-4 fw-bolder">Today's store</h1>
-              <p className="lead fw-normal text-white-50 mb-0">
+              <p className="lead fw-normal text-white-100 mb-0">
                 Updates at 1 AM CET
               </p>
             </div>
@@ -55,20 +55,24 @@ export function Shop(props) {
                     <div className="col mb-5" key={item.itemId}>
                       <div className={`card h-100`}>
                         {/* Product image*/}
-                        <img
-                          className="card-img-top bg-info"
-                          src={item.item.images.background}
-                          alt="#"
-                        />
-                        {/* Product price*/}
-                        <h5 className="price">
-                          {item.store.cost.toLocaleString("en-US")}{" "}
+                        <Link to={`/${item.itemId}`}>
                           <img
-                            src={require("../images/coins.png")}
-                            width={"10%"}
-                            alt={item.item.name}
-                          ></img>
-                        </h5>
+                            className="card-img-top bg-info"
+                            src={item.item.images.background}
+                            alt="#"
+                          />
+                        </Link>
+                        {/* Product price*/}
+                        <Link to={`/${item.itemId}`}>
+                          <h5 className="price">
+                            {item.store.cost.toLocaleString("en-US")}{" "}
+                            <img
+                              src={require("../images/coins.png")}
+                              width={"10%"}
+                              alt={item.item.name}
+                            ></img>
+                          </h5>
+                        </Link>
                         {/* Product details*/}
                         <div className="card-body p-4">
                           <div className="text-center">
@@ -77,15 +81,15 @@ export function Shop(props) {
                           </div>
                         </div>
                         {/* Product actions*/}
-                        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div className="text-center">
-                            <Link to={`/${item.itemId}`}>
-                              <div className="btn btn-outline-dark mt-auto btn-lg">
-                                Show in shop
-                              </div>
-                            </Link>
-                          </div>
-                        </div>
+                        {/* <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div className="text-center">
+                              <Link to={`/${item.itemId}`}>
+                                <div className="btn btn-outline-dark mt-auto btn-lg">
+                                  Show in shop
+                                </div>
+                              </Link>
+                            </div>
+                          </div> */}
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                           <div className="text-center">
                             <div

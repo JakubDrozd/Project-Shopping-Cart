@@ -77,10 +77,6 @@ html {
   border: 5px solid rgb(255, 255, 0);
 }
 
-.announce {
-  background-color: rgb(16, 55, 158);
-}
-
 .price {
   display: flex;
   justify-content: center;
@@ -98,8 +94,13 @@ html {
   background: linear-gradient(
     180deg,
     rgba(27, 128, 181, 1) 0%,
-    rgba(21, 78, 169, 1) 50%,
     rgba(21, 77, 169, 1) 76%,
+    rgba(21, 78, 169, 1) 86%,
     rgba(19, 62, 166, 1) 100%
   );
+  background-attachment: fixed;
+}
+
+.card a {
+  text-decoration: none;
 }

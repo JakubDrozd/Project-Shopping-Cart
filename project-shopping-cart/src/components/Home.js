@@ -47,6 +47,7 @@ export function Home() {
               .sort((a, b) => b.rating - a.rating)
               .map((item) => {
                 if (item.name === "Randomize") {
+                  // eslint-disable-next-line array-callback-return
                   return;
                 }
                 return (

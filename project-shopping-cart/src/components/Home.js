@@ -29,11 +29,11 @@ export function Home() {
   return (
     <div>
       {/* Header*/}
-      <header className="announce py-5">
+      <header className="arena py-5">
         <div className="container px-4 px-lg-5 my-5">
           <div className="text-center text-white">
             <h1 className="display-4 fw-bolder">This week's favorites</h1>
-            <p className="lead fw-normal text-white-50 mb-0">
+            <p className="lead fw-normal text-white-80 mb-0">
               (By community's ratings)
             </p>
           </div>

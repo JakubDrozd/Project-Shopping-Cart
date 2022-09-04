@@ -8,7 +8,7 @@ export function CartDropdown({ items }) {
 
   return (
     <Dropdown>
-      <Dropdown.Toggle variant="primary d-flex align-items-center">
+      <Dropdown.Toggle variant="d-flex align-items-center arena text-white">
         <span className="material-symbols-outlined cart">shopping_cart</span>
       </Dropdown.Toggle>
 

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { CartDropdown } from "./Dropdown";
+import { CartDropdown } from "./CartDropdown";
 // import {Button} from "bootstrap//BUtton"
 
-export function Nav() {
+export function Nav({ cart }) {
   return (
     <nav className="nav">
       <Link to="/">
@@ -11,7 +11,7 @@ export function Nav() {
       <Link to="/shop">
         <li>Shop</li>
       </Link>
-      <CartDropdown></CartDropdown>
+      <CartDropdown cart={cart}></CartDropdown>
     </nav>
   );
 }

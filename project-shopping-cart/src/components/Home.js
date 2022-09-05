@@ -95,9 +95,7 @@ export function Home() {
       {/* Footer*/}
       <footer className="py-5 nav">
         <div className="container">
-          <p className="m-0 text-center text-white">
-            Copyright © Veanty Website 2022
-          </p>
+          <p className="m-0 text-center text-white">Copyright © Veanty 2022</p>
         </div>
       </footer>
     </div>

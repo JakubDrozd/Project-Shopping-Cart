@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AutohideExample } from "./Toast";
 
-export function Shop(props) {
+export function Shop({ handleClick }) {
   const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState([]);
 
@@ -94,9 +95,9 @@ export function Shop(props) {
                           <div className="text-center">
                             <div
                               className="btn btn-outline-dark mt-auto btn-lg"
-                              // onClick={() => {
-                              //   addItemToCart();
-                              // }}
+                              onClick={() => {
+                                handleClick(item);
+                              }}
                             >
                               Add to cart
                             </div>

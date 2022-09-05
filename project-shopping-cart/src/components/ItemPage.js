@@ -25,7 +25,7 @@ export function ItemPage() {
 
   return (
     <div>
-      <section className="py-5 bg-info">
+      <section className="py-5 arena text-white">
         <div className="container px-4 px-lg-5 my-5">
           <div className="row gx-4 gx-lg-5 align-items-center">
             <div className="col-md-6">
@@ -51,15 +51,8 @@ export function ItemPage() {
               </div>
               <p className="lead">{item.description}</p>
               <div className="d-flex">
-                <input
-                  className="form-control text-center me-3"
-                  id="inputQuantity"
-                  type="num"
-                  defaultValue={1}
-                  style={{ maxWidth: "3rem" }}
-                />
                 <button
-                  className="btn btn-outline-dark flex-shrink-0"
+                  className="btn btn-outline-white flex-shrink-0 text-white"
                   type="button"
                 >
                   <i className="bi-cart-fill me-1" />

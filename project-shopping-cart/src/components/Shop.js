@@ -57,11 +57,13 @@ export function Shop({ handleClick }) {
                       <div className={`card h-100`}>
                         {/* Product image*/}
                         <Link to={`/${item.itemId}`}>
-                          <img
-                            className="card-img-top bg-info"
-                            src={item.item.images.background}
-                            alt="#"
-                          />
+                          <div className="bg-image hover-zoom">
+                            <img
+                              className="card-img-top bg-info"
+                              src={item.item.images.background}
+                              alt="#"
+                            />
+                          </div>
                         </Link>
                         {/* Product price*/}
                         <Link to={`/${item.itemId}`}>

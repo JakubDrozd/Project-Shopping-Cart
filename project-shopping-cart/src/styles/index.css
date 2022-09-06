@@ -42,6 +42,7 @@ html {
   position: sticky;
   top: 0px;
   z-index: 10;
+  flex: 1;
 }
 
 .nav > li {
@@ -99,6 +100,7 @@ html {
     rgba(19, 62, 166, 1) 100%
   );
   background-attachment: fixed;
+  flex: 3;
 }
 
 .card a {
@@ -106,24 +108,27 @@ html {
   color: black;
 }
 
-.show > a {
+.selected-items a {
   text-decoration: none;
   color: black;
+}
+
+.selected-items img {
+  width: 40%;
+  height: 40%;
+}
+
+.selected-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-item:hover {
   transition: all 0.2s ease-in-out;
 }
 
-.show li {
-  transition: all 0.2s ease-in-out;
-  border-bottom: 1px solid #f8f8f8;
-  padding-right: 5rem;
-}
-
-.show li:hover {
-  background-color: #00005a;
-  color: white;
-}
-
-.dropdown-item-text > h5:hover {
-  background-color: #00005a;
+.selected-item:hover h4 {
+  background-color: rgba(19, 62, 166, 1);
   color: white;
 }

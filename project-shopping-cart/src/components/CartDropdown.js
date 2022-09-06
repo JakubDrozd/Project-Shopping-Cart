@@ -10,23 +10,21 @@ export function CartDropdown({ cart }) {
         <span className="border-info rounded-circle">{cart.length}</span>
       </Dropdown.Toggle>
 
-      <Dropdown.Menu className="">
+      <Dropdown.Menu className="selected-items">
         {cart.map((item) => {
           return (
-            <>
+            <div key={item.itemId} className="selected-item">
               <Link to={`/${item.itemId}`}>
-                <li>
-                  <h4>
-                    <img
-                      src={item.item.images.icon}
-                      alt={item.item.name}
-                      className="mw-100 mh-100"
-                    ></img>
-                    {item.item.name}
-                  </h4>
-                </li>
+                <h4>
+                  <img
+                    src={item.item.images.icon}
+                    alt={item.item.name}
+                    className="mw-100 mh-100"
+                  ></img>
+                  {item.item.name}
+                </h4>
               </Link>
-            </>
+            </div>
           );
         })}
 

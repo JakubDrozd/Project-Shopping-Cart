@@ -52,7 +52,7 @@ export function Home() {
                 }
                 return (
                   <div className="col mb-5" key={item.identifier}>
-                    <div className="card h-100">
+                    <div className="cardItem h-100">
                       {/* Product image*/}
                       <img
                         className="card-img-top bg-info"
@@ -93,10 +93,10 @@ export function Home() {
         </div>
       </section>
       {/* Footer*/}
-      <footer className="py-5 nav">
-        <div className="container">
-          <p className="m-0 text-center text-white">Copyright © Veanty 2022</p>
-        </div>
+      <footer className="store-nav d-flex justify-content-around align-items-center p-3">
+        <h3 className="m-0 text-center text-white display-5">
+          Copyright © Veanty 2022
+        </h3>
       </footer>
     </div>
   );

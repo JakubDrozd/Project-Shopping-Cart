@@ -24,7 +24,7 @@ export function ItemPage() {
   };
 
   return (
-    <div>
+    <div className="cart-page">
       <section className="py-5 arena text-white">
         <div className="container px-4 px-lg-5 my-5">
           <div className="row gx-4 gx-lg-5 align-items-center">
@@ -63,10 +63,8 @@ export function ItemPage() {
           </div>
         </div>
       </section>
-      <footer className="py-5 nav">
-        <div className="container">
-          <p className="m-0 text-center text-white">Copyright © Veanty 2022</p>
-        </div>
+      <footer className="store-nav d-flex justify-content-around align-items-center p-3">
+        <p className="m-0 text-center text-white">Copyright © Veanty 2022</p>
       </footer>{" "}
     </div>
   );

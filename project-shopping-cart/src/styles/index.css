@@ -6,88 +6,39 @@
 body {
   margin: 0;
   font-family: "fortnite";
-  font-size: 2em;
+  font-size: 2rem;
 }
 
-html {
-  font-size: 1rem;
-}
-
-@include media-breakpoint-up(sm) {
-  html {
-    font-size: 1.2rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  html {
-    font-size: 1.4rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  html {
-    font-size: 1.6rem;
-  }
-}
-
-.nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+/* Navbar */
+.store-nav {
   background-color: rgb(0, 0, 90);
-  color: white;
-  font-size: 2.3rem;
-  padding: 1rem;
-  position: sticky;
-  top: 0px;
-  z-index: 10;
-  flex: 1;
 }
 
-.nav > li {
-  list-style: none;
-}
-
-.nav > a {
-  text-decoration: none;
-  color: white;
+/* Cart items */
+.selected-items {
+  border: 5px solid rgb(255, 255, 0);
   transition: all 0.2s ease-in-out;
 }
 
-.nav > a:hover {
-  transform: scale(1.2);
+.selected-item:hover {
+  transform: scale(1.05);
+  background-color: #f8f8f8;
 }
 
-.card {
-  width: 20vh;
-  height: auto;
-  transition: all 0.2s ease-in-out;
-  border-radius: 0px;
+.store-item {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
     rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  transition: all 0.2s ease-in-out;
 }
 
-.card img {
-  border-radius: 0px;
-}
-
-.card:hover {
+.store-item:hover {
   transform: scale(1.1);
   border: 5px solid rgb(255, 255, 0);
 }
 
 .price {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(0, 0, 90);
-  color: white;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  justify-content: center;
-  align-items: center;
 }
 
 .arena {
@@ -100,35 +51,40 @@ html {
     rgba(19, 62, 166, 1) 100%
   );
   background-attachment: fixed;
-  flex: 3;
 }
 
-.card a {
-  text-decoration: none;
-  color: black;
-}
-
-.selected-items a {
-  text-decoration: none;
-  color: black;
-}
-
-.selected-items img {
-  width: 40%;
-  height: 40%;
-}
-
-.selected-item {
+/* Button skin */
+.button-wrapper {
+  height: 100px;
+  width: 100%;
+  background: linear-gradient(#fefb72, #fefca3);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  margin: 15 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.button-wrapper:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 15px 0px rgba(17, 17, 17, 0.8);
+}
+.button-wrapper .button-inner {
+  height: 75%;
+  width: 90%;
+  background: linear-gradient(#eee802, #fefb72);
+  transform: skew(-5deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-wrapper .button-inner {
+  font-size: 3rem;
+  color: #2c3076;
+  margin: 15px 0 0 0;
 }
 
-.selected-item:hover {
-  transition: all 0.2s ease-in-out;
-}
-
-.selected-item:hover h4 {
-  background-color: rgba(19, 62, 166, 1);
-  color: white;
+li .button-wrapper {
+  height: 100px;
+  width: 300px;
 }

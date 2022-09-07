@@ -54,10 +54,10 @@ export function Shop({ handleClick }) {
                   }
                   return (
                     <div className="col mb-5" key={item.itemId}>
-                      <div className={`card h-100`}>
+                      <div className="vw-20 h-auto bg-light store-item">
                         {/* Product image*/}
                         <Link to={`/${item.itemId}`}>
-                          <div className="bg-image hover-zoom">
+                          <div className="bg-image">
                             <img
                               className="card-img-top bg-info"
                               src={item.item.images.background}
@@ -67,7 +67,7 @@ export function Shop({ handleClick }) {
                         </Link>
                         {/* Product price*/}
                         <Link to={`/${item.itemId}`}>
-                          <h5 className="price">
+                          <h5 className="d-flex justify-content-center align-items-center text-white pt-1 pb-1 price">
                             {item.store.cost.toLocaleString("en-US")}{" "}
                             <img
                               src={require("../images/coins.png")}
@@ -84,15 +84,6 @@ export function Shop({ handleClick }) {
                           </div>
                         </div>
                         {/* Product actions*/}
-                        {/* <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div className="text-center">
-                              <Link to={`/${item.itemId}`}>
-                                <div className="btn btn-outline-dark mt-auto btn-lg">
-                                  Show in shop
-                                </div>
-                              </Link>
-                            </div>
-                          </div> */}
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                           <div className="text-center">
                             <div
@@ -113,12 +104,8 @@ export function Shop({ handleClick }) {
           </div>
         </section>
         {/* Footer*/}
-        <footer className="py-5 nav">
-          <div className="container">
-            <p className="m-0 text-center text-white">
-              Copyright © Veanty 2022
-            </p>
-          </div>
+        <footer className="store-nav d-flex justify-content-around align-items-center p-3">
+          <p className="m-0 text-center text-white">Copyright © Veanty 2022</p>
         </footer>
       </div>
     </>

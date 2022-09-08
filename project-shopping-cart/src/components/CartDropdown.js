@@ -47,6 +47,7 @@ export function CartDropdown({ cart }) {
             <img
               src={require("../images/coins.png")}
               width={"30%"}
+              height={"30%"}
               alt="coins"
             ></img>
           </h3>

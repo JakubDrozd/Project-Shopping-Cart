@@ -23,7 +23,10 @@ export function App() {
     <BrowserRouter>
       <Nav cart={cart} />
       <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
+        <Route
+          path="/"
+          element={<Home handleClick={handleClick}></Home>}
+        ></Route>
         <Route
           path="/shop"
           element={<Shop handleClick={handleClick}></Shop>}

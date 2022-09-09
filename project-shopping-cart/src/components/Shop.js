@@ -81,23 +81,18 @@ export function Shop({ handleClick }) {
                         </div>
                         {/* Product actions*/}
                         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <Link
-                            to="/shop"
-                            style={{ textDecoration: "none", color: "white" }}
-                          >
-                            <h1 className="display-4">
-                              <div className="button-wrapper">
-                                <div
-                                  className="button-inner"
-                                  onClick={() => {
-                                    handleClick(item);
-                                  }}
-                                >
-                                  Add to cart
-                                </div>
+                          <h1 className="display-4">
+                            <div className="button-wrapper w-100">
+                              <div
+                                className="button-inner"
+                                onClick={() => {
+                                  handleClick(item);
+                                }}
+                              >
+                                Add to cart
                               </div>
-                            </h1>
-                          </Link>
+                            </div>
+                          </h1>
                         </div>
                       </div>
                     </div>

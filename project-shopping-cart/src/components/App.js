@@ -33,7 +33,10 @@ export function App() {
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
         <Route path="/cart" element={<Cart cart={cart}></Cart>}></Route>
-        <Route path=":id" element={<ItemPage></ItemPage>}></Route>
+        <Route
+          path=":id"
+          element={<ItemPage handleClick={handleClick}></ItemPage>}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 //App
-export function ItemPage() {
+export function ItemPage({ handleClick }) {
   const params = useParams();
 
   useEffect(() => {
     fetchItem();
-    console.log(params);
   }, []);
 
   const [item, setItem] = useState({
@@ -32,14 +31,14 @@ export function ItemPage() {
               <img
                 className="card-img-top mb-5 mb-md-0"
                 src={item.images.background}
-                alt="..."
+                alt={item.name}
               />
             </div>
             <div className="col-md-6">
-              <div className="small mb-1">ID: {item.costmeticId}</div>
+              <h5 className="mb-1 text-muted">ID: {item.costmeticId}</h5>
               <h1 className="display-5 fw-bolder">{item.name}</h1>
               <div className="fs-5 mb-5 d-flex align-items-center">
-                <span>
+                <h1>
                   {item.obtained}{" "}
                   <img
                     src={require("../images/coins.png")}
@@ -47,25 +46,34 @@ export function ItemPage() {
                     height="10%"
                     alt="coin"
                   ></img>
-                </span>
+                </h1>
               </div>
-              <p className="lead">{item.description}</p>
+              <h3 className="lead display-5">
+                <i>"{item.description}"</i>
+              </h3>
               <div className="d-flex">
-                <button
-                  className="btn btn-outline-white flex-shrink-0 text-white"
-                  type="button"
-                >
-                  <i className="bi-cart-fill me-1" />
-                  Add to cart
-                </button>
+                <h1 className="display-4">
+                  <div className="button-wrapper">
+                    <div
+                      className="button-inner"
+                      onClick={() => {
+                        handleClick(item);
+                      }}
+                    >
+                      Add to cart
+                    </div>
+                  </div>
+                </h1>
               </div>
             </div>
           </div>
         </div>
       </section>
       <footer className="store-nav d-flex justify-content-around align-items-center p-3">
-        <p className="m-0 text-center text-white">Copyright © Veanty 2022</p>
-      </footer>{" "}
+        <h3 className="m-0 text-center text-white display-5">
+          Copyright © Veanty 2022
+        </h3>
+      </footer>
     </div>
   );
 }

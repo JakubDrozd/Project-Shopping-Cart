@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 //Home component
-export function Home() {
+export function Home({ handleClick }) {
   const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState([]);
 
@@ -17,6 +17,7 @@ export function Home() {
 
   useEffect(() => {
     fetchItems();
+    console.log(items);
   }, []);
 
   if (isLoading) {
@@ -42,53 +43,50 @@ export function Home() {
       {/* Section*/}
       <section className="py-5 arena">
         <div className="container px-4 px-lg-5 mt-5">
-          <div className="d-flex justify-center flex-wrap gap-3">
-            {items
-              .sort((a, b) => b.rating - a.rating)
-              .map((item) => {
-                if (item.name === "Randomize") {
-                  // eslint-disable-next-line array-callback-return
-                  return;
-                }
-                return (
-                  <div className="col mb-5" key={item.identifier}>
-                    <div className="cardItem h-100">
-                      {/* Product image*/}
+          <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {items.map((item) => {
+              return (
+                <div className="col mb-5" key={item.identifier}>
+                  <div className="card h-100">
+                    {/* Product image*/}
+                    <Link to={`/${item.identifier}`}>
                       <img
                         className="card-img-top bg-info"
                         src={item.images.transparent}
                         alt={item.name}
                       />
-                      {/* Product details*/}
-                      <div className="card-body p-4">
-                        <div className="text-center">
-                          {/* Product name*/}
-                          <h5 className="fw-bolder">{item.name}</h5>
-                          {/* Product price*/}
-                          {/* {item.store.cost.toLocaleString("en-US")}{" "} */}
-                        </div>
-                      </div>
-                      {/* Product actions*/}
-                      <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div className="text-center">
-                          <Link to={`/${item.identifier}`}>
-                            <div className="btn btn-outline-dark mt-auto btn-lg">
-                              Show in shop
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                          <div className="btn btn-outline-dark mt-auto btn-lg">
-                            Add to cart
-                          </div>
-                        </div>
+                    </Link>
+                    {/* Product details*/}
+                    <div className="card-body p-0">
+                      <div className="text-center">
+                        {/* Product name*/}
+                        <h5 className="fw-bolder display-5">{item.name}</h5>
                       </div>
                     </div>
+                    {/* Product actions*/}
+                    <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <Link
+                        to="/shop"
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        <h1 className="display-4">
+                          <div className="button-wrapper">
+                            <div
+                              className="button-inner"
+                              onClick={() => {
+                                handleClick(item);
+                              }}
+                            >
+                              Add to cart
+                            </div>
+                          </div>
+                        </h1>
+                      </Link>
+                    </div>
                   </div>
-                );
-              })}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -56,7 +56,7 @@ export function Shop({ handleClick }) {
                         {/* Product image*/}
                         <Link to={`/${item.itemId}`}>
                           <img
-                            className="card-img-top"
+                            className="card-img-top bg-info"
                             src={item.item.images.background}
                             alt={item.item.name}
                           />
@@ -108,12 +108,10 @@ export function Shop({ handleClick }) {
         </div>
       </section>
       {/* Footer*/}
-      <footer className="py-5 bg-dark">
-        <div className="container">
-          <p className="m-0 text-center text-white">
-            Copyright © Your Website 2022
-          </p>
-        </div>
+      <footer className="store-nav d-flex justify-content-around align-items-center p-3">
+        <h3 className="m-0 text-center text-white display-5">
+          Copyright © Veanty 2022
+        </h3>
       </footer>
     </div>
   );

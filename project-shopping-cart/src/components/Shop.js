@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AutohideExample } from "./Toast";
+import { Loader } from "./Loader";
 
 export function Shop({ handleClick }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,13 +21,6 @@ export function Shop({ handleClick }) {
     // console.log(items.data);
   };
 
-  if (isLoading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center">
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
   return (
     <div>
       {/* Header*/}
@@ -44,61 +38,67 @@ export function Shop({ handleClick }) {
       <section className="py-5 arena">
         <div className="container px-4 px-lg-5 mt-5">
           <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            {items
-              .sort((a, b) => b.store.cost - a.store.cost)
-              .map((item) => {
-                if (item.store.cost === 0) {
-                  return null;
-                } else {
-                  return (
-                    <div className="col mb-5" key={item.itemId}>
-                      <div className="card h-100">
-                        {/* Product image*/}
-                        <Link to={`/${item.itemId}`}>
-                          <img
-                            className="card-img-top bg-info"
-                            src={item.item.images.background}
-                            alt={item.item.name}
-                          />
-                        </Link>
-                        {/* Product details*/}
-                        <div className="card-body p-0">
-                          <div className="text-center">
-                            {/* Product price*/}
-                            <span className="d-flex justify-content-center align-items-center text-white pt-1 price">
-                              {item.store.cost.toLocaleString("en-US")}{" "}
+            {isLoading ? (
+              <Loader></Loader>
+            ) : (
+              items
+                .sort((a, b) => b.store.cost - a.store.cost)
+                .map((item) => {
+                  if (item.store.cost === 0) {
+                    return null;
+                  } else {
+                    return (
+                      <div className="col mb-5" key={item.itemId}>
+                        <div className="card h-100 store-item">
+                          {/* Product image*/}
+                          <div className="card-image">
+                            <Link to={`/${item.itemId}`}>
                               <img
-                                src={require("../images/coins.png")}
-                                alt="coins"
-                                width={"10%"}
-                              ></img>{" "}
-                            </span>
-                            {/* Product name*/}
-                            <h5 className="fw-bolder display-5">
-                              {item.item.name}
-                            </h5>
+                                className="card-img-top bg-info"
+                                src={item.item.images.background}
+                                alt={item.item.name}
+                              />
+                            </Link>
+                          </div>
+                          {/* Product details*/}
+                          <div className="card-body p-0">
+                            <div className="text-center">
+                              {/* Product price*/}
+                              <span className="d-flex justify-content-center align-items-center text-white pt-1 price">
+                                {item.store.cost.toLocaleString("en-US")}{" "}
+                                <img
+                                  src={require("../images/coins.png")}
+                                  alt="coins"
+                                  width={"10%"}
+                                ></img>{" "}
+                              </span>
+                              {/* Product name*/}
+                              <h5 className="fw-bolder display-5 pt-4">
+                                {item.item.name}
+                              </h5>
+                            </div>
+                          </div>
+                          {/* Product actions*/}
+                          <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <h1 className="display-4">
+                              <div className="button-wrapper w-100">
+                                <div
+                                  className="button-inner text-nowrap"
+                                  onClick={() => {
+                                    handleClick(item);
+                                  }}
+                                >
+                                  Add to cart
+                                </div>
+                              </div>
+                            </h1>
                           </div>
                         </div>
-                        {/* Product actions*/}
-                        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <h1 className="display-4">
-                            <div className="button-wrapper w-100">
-                              <div
-                                className="button-inner"
-                                onClick={() => {
-                                  handleClick(item);
-                                }}
-                              >
-                                Add to cart
-                              </div>
-                            </div>
-                          </h1>
-                        </div>
                       </div>
-                    </div>
-                  );
-                }
-              })}
+                    );
+                  }
+                })
+            )}
           </div>
         </div>
       </section>

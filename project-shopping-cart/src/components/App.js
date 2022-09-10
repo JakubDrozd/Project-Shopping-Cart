@@ -12,7 +12,11 @@ export function App() {
   const [cart, setCart] = useState([]);
 
   const handleClick = (item) => {
-    setCart((cart) => [...cart, item]);
+    if (cart.includes(item)) {
+      return;
+    } else {
+      setCart((cart) => [...cart, item]);
+    }
   };
 
   // useEffect(() => {

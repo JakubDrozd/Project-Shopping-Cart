@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Loader } from "../components/Loader";
 
 //Home component
 export function Home({ handleClick }) {
@@ -20,13 +21,6 @@ export function Home({ handleClick }) {
     console.log(items);
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center">
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
   return (
     <div>
       {/* Header*/}
@@ -40,37 +34,38 @@ export function Home({ handleClick }) {
           </div>
         </div>
       </header>
-      {/* Section*/}
       <section className="py-5 arena">
         <div className="container px-4 px-lg-5 mt-5">
           <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            {items.map((item) => {
-              return (
-                <div className="col mb-5" key={item.identifier}>
-                  <div className="card h-100">
-                    {/* Product image*/}
-                    <Link to={`/${item.identifier}`}>
-                      <img
-                        className="card-img-top bg-info"
-                        src={item.images.transparent}
-                        alt={item.name}
-                      />
-                    </Link>
-                    {/* Product details*/}
-                    <div className="card-body p-0">
-                      <div className="text-center">
-                        {/* Product name*/}
-                        <h5 className="fw-bolder display-5">{item.name}</h5>
+            {isLoading ? (
+              <Loader></Loader>
+            ) : (
+              items.map((item) => {
+                if (item.name === "Randomize") {
+                  return null;
+                }
+                return (
+                  <div className="col mb-5" key={item.identifier}>
+                    <div className="card h-100 store-item">
+                      {/* Product image*/}
+                      <Link to={`/${item.identifier}`}>
+                        <img
+                          className="card-img-top bg-info"
+                          src={item.images.transparent}
+                          alt={item.name}
+                        />
+                      </Link>
+                      {/* Product details*/}
+                      <div className="card-body p-0">
+                        <div className="text-center">
+                          {/* Product name*/}
+                          <h5 className="fw-bolder display-5">{item.name}</h5>
+                        </div>
                       </div>
-                    </div>
-                    {/* Product actions*/}
-                    <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <Link
-                        to="/shop"
-                        style={{ textDecoration: "none", color: "white" }}
-                      >
+                      {/* Product actions*/}
+                      <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <h1 className="display-4">
-                          <div className="button-wrapper">
+                          <div className="button-wrapper w-100 text-nowrap">
                             <div
                               className="button-inner"
                               onClick={() => {
@@ -81,12 +76,12 @@ export function Home({ handleClick }) {
                             </div>
                           </div>
                         </h1>
-                      </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })
+            )}
           </div>
         </div>
       </section>

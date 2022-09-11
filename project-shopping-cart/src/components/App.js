@@ -16,6 +16,7 @@ export function App() {
       return;
     } else {
       setCart((cart) => [...cart, item]);
+      console.log(item);
     }
   };
 

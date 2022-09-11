@@ -9,11 +9,12 @@ export function Home({ handleClick }) {
 
   const fetchItems = async () => {
     const data = await fetch(
-      "https://fortnite-api.theapinetwork.com/items/popular"
+      "https://fortnite-api.theapinetwork.com/store/get"
     );
     const items = await data.json();
-    setItems(items.entries[1].entries);
+    setItems(items.data);
     setIsLoading(false);
+    // console.log(items.data);
   };
 
   useEffect(() => {
@@ -27,10 +28,10 @@ export function Home({ handleClick }) {
       <header className="arena py-5">
         <div className="container px-4 px-lg-5 my-5">
           <div className="text-center text-white">
-            <h1 className="display-4 fw-bolder">This week's favorites</h1>
-            <p className="lead fw-normal text-white-80 mb-0">
-              (By community's ratings)
-            </p>
+            <h1 className="display-2 fw-bolder">This week's favorites</h1>
+            <h1 className="lead fw-normal text-white-80 mb-0 display-5">
+              <i>(By community's ratings)</i>
+            </h1>
           </div>
         </div>
       </header>
@@ -40,47 +41,71 @@ export function Home({ handleClick }) {
             {isLoading ? (
               <Loader></Loader>
             ) : (
-              items.map((item) => {
-                if (item.name === "Randomize") {
-                  return null;
-                }
-                return (
-                  <div className="col mb-5" key={item.identifier}>
-                    <div className="card h-100 store-item">
-                      {/* Product image*/}
-                      <Link to={`/${item.identifier}`}>
-                        <img
-                          className="card-img-top bg-info"
-                          src={item.images.transparent}
-                          alt={item.name}
-                        />
-                      </Link>
-                      {/* Product details*/}
-                      <div className="card-body p-0">
-                        <div className="text-center">
-                          {/* Product name*/}
-                          <h5 className="fw-bolder display-5">{item.name}</h5>
-                        </div>
-                      </div>
-                      {/* Product actions*/}
-                      <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <h1 className="display-4">
-                          <div className="button-wrapper w-100 text-nowrap">
-                            <div
-                              className="button-inner"
-                              onClick={() => {
-                                handleClick(item);
-                              }}
-                            >
-                              Add to cart
+              items
+                .sort(
+                  (a, b) =>
+                    b.item.ratings.totalPoints - a.item.ratings.totalPoints
+                )
+                .slice(0, 9)
+                .map((item) => {
+                  if (item.store.cost === 0) {
+                    return null;
+                  } else {
+                    return (
+                      <div className="col mb-5" key={item.itemId}>
+                        <div className="card h-100 store-item">
+                          {/* Product image*/}
+                          <div className="card-image">
+                            <Link to={`/${item.itemId}`}>
+                              <img
+                                className="card-img-top bg-info"
+                                src={item.item.images.background}
+                                alt={item.item.name}
+                              />
+                            </Link>
+                          </div>
+                          {/* Product details*/}
+                          <div className="card-body p-0">
+                            <div className="text-center">
+                              {/* Product price*/}
+                              <span className="d-flex justify-content-center align-items-center text-white pt-1 price">
+                                {item.store.cost.toLocaleString("en-US")}{" "}
+                                <img
+                                  src={require("../images/coins.png")}
+                                  alt="coins"
+                                  width={"10%"}
+                                ></img>{" "}
+                              </span>
+                              {/* Product name*/}
+                              <h5 className="fw-bolder display-5 pt-4">
+                                {item.item.name}
+                              </h5>
+                              <div className="d-flex justify-content-center align-items-center">
+                                <h4>{item.item.ratings.avgStars} ⭐</h4>
+                                <h4>({item.item.ratings.numberVotes} votes)</h4>
+                              </div>
                             </div>
                           </div>
-                        </h1>
+                          {/* Product actions*/}
+                          <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <h1 className="display-4">
+                              <div className="button-wrapper w-100">
+                                <div
+                                  className="button-inner text-nowrap"
+                                  onClick={() => {
+                                    handleClick(item);
+                                  }}
+                                >
+                                  Add to cart
+                                </div>
+                              </div>
+                            </h1>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                );
-              })
+                    );
+                  }
+                })
             )}
           </div>
         </div>

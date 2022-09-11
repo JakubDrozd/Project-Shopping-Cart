@@ -27,10 +27,10 @@ export function Shop({ handleClick }) {
       <header className="py-5 arena">
         <div className="container px-4 px-lg-5 my-5">
           <div className="text-center text-white">
-            <h1 className="display-4 fw-bolder">Current Fortnite BR Store</h1>
-            <p className="lead fw-normal text-white-50 mb-0">
-              <i>Resets everyday at 1 AM CET</i>
-            </p>
+            <h1 className="display-2 fw-bolder">Current BR Store</h1>
+            <h1 className="lead fw-normal text-white-80 mb-0 display-5">
+              <i>Updates everyday at 1 AM CET</i>
+            </h1>
           </div>
         </div>
       </header>
@@ -76,6 +76,10 @@ export function Shop({ handleClick }) {
                               <h5 className="fw-bolder display-5 pt-4">
                                 {item.item.name}
                               </h5>
+                              <div className="d-flex justify-content-center align-items-center">
+                                <h4>{item.item.ratings.avgStars} ⭐</h4>
+                                <h4>({item.item.ratings.numberVotes} votes)</h4>
+                              </div>
                             </div>
                           </div>
                           {/* Product actions*/}

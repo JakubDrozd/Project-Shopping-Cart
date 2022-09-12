@@ -18,6 +18,7 @@ body {
   background-color: rgb(0, 0, 90);
 }
 
+/* Webpages background */
 .arena {
   background: rgb(27, 128, 181);
   background: linear-gradient(
@@ -42,6 +43,31 @@ body {
 .store-item:hover {
   transform: scale(1.1);
   border: 5px solid rgb(255, 255, 0);
+}
+
+/* Dropdown Menu */
+.dp {
+  position: relative;
+  display: inline-block;
+}
+
+.dp-menu {
+  position: absolute;
+  overflow: hidden;
+  border: 5px solid rgb(255, 255, 0);
+}
+
+.dp-menu li {
+  list-style: none;
+  width: 100%;
+  border-bottom: 3px solid #000;
+  filter: brightness(95%);
+  transition: filter 300ms;
+}
+
+.dp-menu li:hover {
+  filter: brightness(105%);
+  cursor: pointer;
 }
 
 /* Button skin */

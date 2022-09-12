@@ -1,62 +1,79 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function CartDropdown({ cart }) {
-  const [expanded, setExpanded] = useState(false);
-
-  function expand() {
-    if (expanded) {
-      setExpanded(false);
-    } else {
-      setExpanded(true);
-    }
-  }
+  const [open, setOpen] = useState(false);
 
   function close() {
-    setExpanded(false);
+    setOpen(false);
   }
 
   return (
-    <div className="position-relative">
-      <div className="dropdown" tabIndex={0} onClick={expand} onBlur={close}>
-        <h1 className="display-3">
-          <div className="button-wrapper">
-            <div className="button-inner">
-              <div className="cart-text d-flex gap-2">
-                <span className="button-inner material-symbols-outlined cart ">
-                  shopping_cart
-                </span>
-                <div>
-                  <h2 className="rounded-circle border border-info p-2 bg-info">
-                    {cart.length}
-                  </h2>
-                </div>
+    <div className="dp" onClick={() => setOpen(!open)} onBlur={() => close()}>
+      <h1 className="display-3">
+        <div className="button-wrapper">
+          <div className="button-inner">
+            <div className="cart-text d-flex gap-2">
+              <span className="button-inner material-symbols-outlined cart ">
+                shopping_cart
+              </span>
+              <div>
+                <h2 className="rounded-circle border border-info p-2 bg-info">
+                  {cart.length}
+                </h2>
               </div>
             </div>
           </div>
-        </h1>
-        {expanded ? (
-          <div className={"dropdown-options-list"}>
-            {cart.map((item) => {
-              return (
-                <div
-                  className="cart-item bg-light d-flex flex-column"
+        </div>
+      </h1>
+      {open ? (
+        <div className="dp-menu bg-info">
+          {cart.map((item) => {
+            return (
+              <Link to={`/${item.itemId}`}>
+                <li
+                  className="bg-light text-dark"
                   key={item.itemId}
+                  style={{ listStyle: "none" }}
                 >
-                  <div className="cart-item-img">
+                  <div className="cart-item d-flex justify-content-start align-items-center gap-3">
                     <img
                       src={item.item.images.background}
-                      alt={item.itemId}
-                      width={"50%"}
-                      height={"50%"}
+                      alt={item.item.name}
+                      width="30%"
                     />
+                    <div className="main-info d-flex flex-column gap-2">
+                      <h4>{item.item.name}</h4>
+                      <h4>
+                        {item.store.cost}{" "}
+                        <img
+                          src={require("../images/coins.png")}
+                          alt="coins"
+                          width={"20%"}
+                          height="auto"
+                        />
+                      </h4>
+                    </div>
                   </div>
-                  <div className="cart-item-name">{item.item.name}</div>
-                </div>
-              );
-            })}
+                </li>
+              </Link>
+            );
+          })}
+          <div className="cart-cost d-flex justify-content-center align-items-center gap-3">
+            <h4>
+              {cart.reduce((sum, item) => {
+                return sum + item.store.cost;
+              }, 0)}
+              <img
+                src={require("../images/coins.png")}
+                alt="coins"
+                width={"20%"}
+                height="auto"
+              />
+            </h4>
           </div>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
     </div>
   );
 }

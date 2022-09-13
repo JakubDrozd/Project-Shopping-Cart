@@ -20,6 +20,7 @@ export function App() {
     }
   };
 
+  //
   // useEffect(() => {
   //   console.log(cart);
   // }, [cart]);

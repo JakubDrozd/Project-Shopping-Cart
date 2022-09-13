@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { CartDropdown } from "./CartDropdown";
 // import {Button} from "bootstrap//BUtton"
-
+//
 export function Nav({ cart }) {
   return (
     <nav className="store-nav d-flex justify-content-around align-items-center p-3 sticky-top">

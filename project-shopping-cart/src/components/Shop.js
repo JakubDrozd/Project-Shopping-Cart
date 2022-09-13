@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AutohideExample } from "./Toast";
 import { Loader } from "./Loader";
-
+//
 export function Shop({ handleClick }) {
   const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState([]);

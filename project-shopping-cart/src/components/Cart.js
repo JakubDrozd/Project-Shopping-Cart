@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/cart.css";
-
+//
 //Cart component
 export function Cart({ cart }) {
   useEffect(() => {

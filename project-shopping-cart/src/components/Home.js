@@ -20,7 +20,7 @@ export function Home({ handleClick }) {
   useEffect(() => {
     fetchItems();
     console.log(items);
-  }, []);
+  }, [items]);
 
   return (
     <div>

@@ -5,7 +5,7 @@ import { NotFound } from "./NotFound";
 import { Nav } from "./Nav";
 import { Cart } from "./Cart";
 import { ItemPage } from "./ItemPage";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 //App component
 export function App() {

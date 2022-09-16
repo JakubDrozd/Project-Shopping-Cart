@@ -15,6 +15,7 @@ export function Home({ handleClick }) {
     setItems(items.data);
     setIsLoading(false);
     // console.log(items.data);
+    //
   };
 
   useEffect(() => {
